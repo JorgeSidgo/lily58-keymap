@@ -63,9 +63,6 @@ void alt_media_reset(qk_tap_dance_state_t *state, void *user_data) {
 void lr_finished(qk_tap_dance_state_t *state, void *user_data) {
     lr_tap_state.state = cur_dance(state);
     switch (lr_tap_state.state) {
-        case TD_SINGLE_TAP:
-            tap_code(KC_ENT);
-            break;
         case TD_SINGLE_HOLD:
             layer_on(_RAISE);
             break;
@@ -75,6 +72,8 @@ void lr_finished(qk_tap_dance_state_t *state, void *user_data) {
             } else {
                 layer_on(_RAISE);
             }
+            break;
+        case TD_SINGLE_TAP:
             break;
         case TD_NONE:
             break;
